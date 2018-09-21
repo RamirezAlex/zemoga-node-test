@@ -6,6 +6,6 @@ const VIPerson = require('./vipersonController')
 const router = new Router()
 
 router.get('/', VIPerson.list)
-router.get('/vote/:user_id/:people_id/:vote', VIPerson.vote)
+router.post('/vote/', VIPerson.vote)
 
 module.exports = router
