@@ -1,7 +1,7 @@
 'use strict'
 
 const list = (req, res) => {
-  const people = [
+  const vipeople = [
     {
       id: 1,
       fullName: 'Kayne West',
@@ -15,7 +15,7 @@ const list = (req, res) => {
     {},
   ]
 
-  res.send({ people })
+  res.send({ vipeople })
 }
 
 const vote = (req, res) => {
