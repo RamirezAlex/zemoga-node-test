@@ -1,21 +1,18 @@
 'use strict'
 
-const list = (req, res) => {
-  const vipeople = [
-    {
-      id: 1,
-      fullName: 'Kayne West',
-      positiveVotes: 45,
-      negativeVotes: 12,
-      category: 'Entertainment',
-      description: 'Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.'
-    },
-    {},
-    {},
-    {},
-  ]
+const { VIPerson, Vote } = require('./../../../models')
 
-  res.send({ vipeople })
+const list = (req, res) => {
+  VIPerson.findAll()
+    .then(vipeople => {
+      return res.status(200).send(vipeople)
+    })
+    .catch(error => {
+      return res.status(500).send({ 
+        message: 'Internal server error.', 
+        error
+      })
+    })
 }
 
 const vote = (req, res) => {

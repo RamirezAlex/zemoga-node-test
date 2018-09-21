@@ -2,21 +2,21 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('VIPeople', {
+    return queryInterface.createTable('Votes', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      fullname: {
-        type: Sequelize.STRING
+      vote: {
+        type: Sequelize.BOOLEAN
       },
-      category: {
-        type: Sequelize.STRING
+      user_id: { 
+        type: Sequelize.INTEGER
       },
-      description: {
-        type: Sequelize.STRING
+      viperson_id: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -29,6 +29,6 @@ module.exports = {
     })
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('VIPeople')
+    return queryInterface.dropTable('Votes')
   }
 }

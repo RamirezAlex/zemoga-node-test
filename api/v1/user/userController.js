@@ -4,10 +4,6 @@
 const { User } = require('./../../../models')
 const { encrypt } = require('./userHelper')
 
-const list = (req, res) => {
-  res.send({ users: [] })
-}
-
 const register = (req, res) => {
   const { username, password, age, marital } = req.body
 
@@ -43,6 +39,5 @@ const register = (req, res) => {
 }
 
 module.exports = {
-  list,
   register
 }
