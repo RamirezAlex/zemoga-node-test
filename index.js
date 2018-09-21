@@ -2,16 +2,20 @@
 
 const express = require('express')
 const http = require('http')
+const bodyParser = require('body-parser')
 
 const app = express()
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
 const server = http.createServer(app)
 
 const auth = require('./api/v1/auth')
-const people = require('./api/v1/people')
+const viperson = require('./api/v1/viperson')
 const user = require('./api/v1/user')
 
 app.use('/api/v1/auth', auth)
-app.use('/api/v1/people', people)
+app.use('/api/v1/viperson', viperson)
 app.use('/api/v1/user', user)
 
 app.get('/', (req, res) => {
